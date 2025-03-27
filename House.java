@@ -14,11 +14,11 @@ public class House extends Building {
   }
 
   public boolean hasDiningRoom(){
-
+    return hasDiningRoom;
   }
   
   public int nResidents(){
-
+    int nResidents = residents.size(); 
   }
 
   public static void main(String[] args) {
