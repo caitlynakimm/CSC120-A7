@@ -6,17 +6,33 @@ import java.util.NoSuchElementException;
 public class Library extends Building implements LibraryRequirements{
     private Hashtable<String, Boolean> collection;
 
+    /**
+     * Constructs a Library with specified attributes
+     * @param name Name of the library
+     * @param address Physical address of the library
+     * @param nFloors Number of floors in the library
+     */
     public Library(String name, String address, int nFloors) {
       super(name, address, nFloors);
       this.collection = new Hashtable<>();
       System.out.println("You have built a library: 📖");
     }
 
+    /**
+     * Adds a title to the library's collection
+     * @param title book title to add
+     */
     public void addTitle(String title){
       this.collection.put(title, true);
       System.out.println(title + "added.");
     }
 
+    /**
+     * Removes a title from the library's collection
+     * @param title book title to remove
+     * @return removed title
+     * @throws NoSuchElementException if title is not found
+     */
     public String removeTitle(String title){
       //return the title that we removed
       if (this.collection.containsKey(title)){
@@ -26,6 +42,11 @@ public class Library extends Building implements LibraryRequirements{
       throw new NoSuchElementException(title + "not found.");
     }
 
+    /**
+     * Checks out a book from the library
+     * @param title book title to check out
+     * @throws NoSuchElementException if book is unavailable or not found
+     */
     public void checkOut(String title){
       if (!this.collection.containsKey(title)){
         //if book doesn't exist in collection
@@ -40,6 +61,11 @@ public class Library extends Building implements LibraryRequirements{
 
       }
 
+    /**
+     * Returns a book to the library
+     * @param title book title to return
+     * @throws NoSuchElementException if book is already available or not found
+     */
     public void returnBook(String title){
       if (!this.collection.containsKey(title)){
         //if book doesn't exist in collection
@@ -53,10 +79,20 @@ public class Library extends Building implements LibraryRequirements{
       System.out.println("Successfully returned " + title + ".");
     }
 
+    /**
+     * Checks if a title exists in the library
+     * @param title book title to check
+     * @return True if title exists, false otherwise
+     */
     public boolean containsTitle(String title){
       return this.collection.containsKey(title);
     }
 
+    /**
+     * Checks if a book is available for checkout
+     * @param title The book title to check
+     * @return True if the book is available, false otherwise
+     */
     public boolean isAvailable(String title){
       // check if title exists first
       if (this.collection.containsKey(title)) {
@@ -67,6 +103,9 @@ public class Library extends Building implements LibraryRequirements{
       return false;
     }
 
+    /**
+     * Prints entire library collection with books' availability status
+     */
     public void printCollection(){
       System.out.println("\n----Library Collection----");
         for (String title : this.collection.keySet()) {
