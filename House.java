@@ -23,9 +23,8 @@ public class House extends Building implements HouseRequirements{
   }
 
   public void moveIn(Student s){ //go through list and ensure student isn't in there and if true then add student
-    for (int i = 0; i < this.residents.size(); i++){
-      Student resident = this.residents.get(i);
-      if (resident.equals(s)) {
+    for (Student resident : this.residents) {
+      if (resident.getId().equals(s.getId())) {
         throw new NoSuchElementException("Student " + s + " is already in the house.");
       }
     }
@@ -36,7 +35,7 @@ public class House extends Building implements HouseRequirements{
   public Student moveOut(Student s) {
     for (int i = 0; i < this.residents.size(); i++) {
         Student resident = this.residents.get(i);
-        if (resident.equals(s)) {
+        if (resident.getId().equals(s.getId())) {
             Student removedStudent = this.residents.remove(i); 
             System.out.println("Student " + removedStudent + " has moved out.");
             return removedStudent;
@@ -46,7 +45,12 @@ public class House extends Building implements HouseRequirements{
   }
 
   public boolean isResident(Student s){
-    return this.residents.contains(s);
+    for (Student resident: this.residents){
+      if (resident.getId().equals(s.getId())) {
+        return true;
+      }
+    }
+    return false;
   }
 
   public static void main(String[] args) {

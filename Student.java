@@ -18,6 +18,10 @@ public class Student {
         return this.name; 
     }
 
+    public String getId(){
+        return this.id;
+    }
+
     public String toString() {
         return this.name + " ID: " + this.id + " Class Year: " + this.classYear;
     }
