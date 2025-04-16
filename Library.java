@@ -138,7 +138,7 @@ public class Library extends Building implements LibraryRequirements{
     
     String removedBook = neilson.removeTitle("The Vegetarian");
     System.out.println("\nRemoved book: " + removedBook);
-    System.out.println("Final collection:");
+    System.out.println("\nFinal collection:");
     neilson.printCollection();
     }
   

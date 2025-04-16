@@ -63,6 +63,7 @@ public class Cafe extends Building implements CafeRequirements{
         
         compassCafe.sellCoffee(12, 3, 2);
         compassCafe.sellCoffee(12, 3, 2);
+        compassCafe.sellCoffee(5, 2, 1);
     }
     
 }
