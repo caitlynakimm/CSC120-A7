@@ -1,4 +1,5 @@
 /* This is a stub for the Cafe class */
+//hi
 public class Cafe {
 
     public Cafe() {
